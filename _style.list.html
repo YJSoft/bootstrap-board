@@ -1,3 +1,4 @@
+<!--@if($module_info->display_listheadset_button != 'Y')--><div class="paddingtb10"></div><!--@end-->
 <table cond="$document_list || $notice_list" class="table table-hover">
 <!--@if($module_info->display_listheadset_button != 'N')-->
 	<thead>
@@ -7,16 +8,16 @@
 			<th scope="col" cond="$val->type=='no' && $val->idx==-1" class="hidden-xs width50" ><a href="{getUrl('order_type',$order_type)}" title="<!--@if($order_type=="desc")-->{$lang->order_desc}<!--@else-->{$lang->order_asc}<!--@end-->">{$lang->no}</a>
 			</th>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<th scope="col" cond="$module_info->use_category=='Y'" class="hidden-xs width80">{$lang->category}
+			<th scope="col" cond="$module_info->use_category=='Y'" class="hidden-xs width60">{$lang->category}
 			</th>
 			<th scope="col" class="text-center"><a href="{getUrl('sort_index','title','order_type',$order_type)}">{$lang->title} <i cond="$sort_index=='title'" class="fa fa-sort-asc fa-fw"></i></a>
 			</th>
 			</block>
-			<th scope="col" cond="$val->type=='nick_name' && $val->idx==-1" class="hidden-xs width100">{$lang->writer}
+			<th scope="col" cond="$val->type=='nick_name' && $val->idx==-1" class="hidden-xs width70">{$lang->writer}
 			</th>
-			<th scope="col" cond="$val->type=='user_id' && $val->idx==-1" class="hidden-xs width100">{$lang->user_id}
+			<th scope="col" cond="$val->type=='user_id' && $val->idx==-1" class="hidden-xs width70">{$lang->user_id}
 			</th>
-			<th scope="col" cond="$val->type=='user_name' && $val->idx==-1" class="hidden-xs width100">{$lang->user_name}
+			<th scope="col" cond="$val->type=='user_name' && $val->idx==-1" class="hidden-xs width70">{$lang->user_name}
 			</th>
 			<th scope="col" cond="$val->type=='regdate' && $val->idx==-1" class="text-center width70"><a href="{getUrl('sort_index','regdate','order_type',$order_type)}">{$lang->date}<i cond="$sort_index=='regdate'" class="fa fa-sort-asc fa-fw"></i></a>
 			</th>
@@ -24,9 +25,9 @@
 			</th>
 			<th scope="col" cond="$val->type=='last_post' && $val->idx==-1" class="hidden-xs width70 text-center">{$lang->last_post}
 			</th>
-			<th scope="col" cond="$val->type=='readed_count' && $val->idx==-1" class="hidden-xs width70"><a href="{getUrl('sort_index','readed_count','order_type',$order_type)}">{$lang->readed_count}<i cond="$sort_index=='readed_count'" class="fa fa-sort-asc fa-fw"></i></a>
+			<th scope="col" cond="$val->type=='readed_count' && $val->idx==-1" class="hidden-xs width60"><a href="{getUrl('sort_index','readed_count','order_type',$order_type)}">{$lang->readed_count}<i cond="$sort_index=='readed_count'" class="fa fa-sort-asc fa-fw"></i></a>
 			</th>
-			<th scope="col" cond="$val->type=='voted_count' && $val->idx==-1" class="hidden-xs width70"><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}<i cond="$sort_index=='voted_count'" class="fa fa-sort-asc fa-fw"></i></a>
+			<th scope="col" cond="$val->type=='voted_count' && $val->idx==-1" class="hidden-xs width60"><a href="{getUrl('sort_index','voted_count','order_type',$order_type)}">{$lang->voted_count}<i cond="$sort_index=='voted_count'" class="fa fa-sort-asc fa-fw"></i></a>
 			</th>
 			<th scope="col" cond="$val->idx!=-1" class="hidden-xs"><a href="{getUrl('sort_index',$val->eid,'order_type',$order_type)}">{$val->name}</a>
 			</th>
@@ -44,7 +45,7 @@
 				<block cond="$document_srl==$document->document_srl">&raquo;</block><strong cond="$document_srl!=$document->document_srl">{$lang->notice}</strong>
 			</td>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<td cond="$module_info->use_category=='Y'" class="hidden-xs width80" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'"><strong>{$category_list[$document->get('category_srl')]->title}</strong></td>
+			<td cond="$module_info->use_category=='Y'" class="hidden-xs width60"><strong>{$category_list[$document->get('category_srl')]->title}</strong></td>
 			<td>
 				<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}"><strong>{$document->getTitle($module_info->subject_cut_size)}</strong></a>
 				<!--@if($document->getCommentCount())-->
@@ -65,9 +66,9 @@
 				<!--@if($document->variables[status]=='SECRET')--><small><span class="label label-warning"><b>secret</b></span></small><!--@end-->
 			</td>
 			</block>
-			<td cond="$val->type=='nick_name' && $val->idx==-1" class="hidden-xs width100"><a href="#popup_menu_area" class="member_{$document->get('member_srl')} nocolorlist" onclick="return false"><span>{$document->getNickName()}</span></a></td>
-			<td cond="$val->type=='user_id' && $val->idx==-1" class="hidden-xs width100">{$document->getUserID()}</td>
-			<td cond="$val->type=='user_name' && $val->idx==-1" class="hidden-xs width100">{$document->getUserName()}</td>
+			<td cond="$val->type=='nick_name' && $val->idx==-1" class="hidden-xs width70"><a href="#popup_menu_area" class="member_{$document->get('member_srl')} nocolorlist" onclick="return false"><span>{$document->getNickName()}</span></a></td>
+			<td cond="$val->type=='user_id' && $val->idx==-1" class="hidden-xs width70">{$document->getUserID()}</td>
+			<td cond="$val->type=='user_name' && $val->idx==-1" class="hidden-xs width70">{$document->getUserName()}</td>
 			<td cond="$val->type=='regdate' && $val->idx==-1" class="width70">{$document->getRegdate('Y.m.d')}</td>
 			<td cond="$val->type=='last_update' && $val->idx==-1" class="hidden-xs width70">{zdate($document->get('last_update'),'Y.m.d')}</td>
 			<td cond="$val->type=='last_post' && $val->idx==-1" class="hidden-xs">
@@ -76,8 +77,8 @@
 				</block>
 				<block cond="(int)($document->get('comment_count'))==0">&nbsp;</block>
 			</td>
-			<td cond="$val->type=='readed_count' && $val->idx==-1" class="hidden-xs width70">{$document->get('readed_count')>0?$document->get('readed_count'):'0'}</td>
-			<td cond="$val->type=='voted_count' && $val->idx==-1" class="hidden-xs width70">{$document->get('voted_count')!=0?$document->get('voted_count'):'0'}</td>
+			<td cond="$val->type=='readed_count' && $val->idx==-1" class="hidden-xs width60">{$document->get('readed_count')>0?$document->get('readed_count'):'0'}</td>
+			<td cond="$val->type=='voted_count' && $val->idx==-1" class="hidden-xs width60">{$document->get('voted_count')!=0?$document->get('voted_count'):'0'}</td>
 			<td cond="$val->idx!=-1" class="m_no"|cond="$val->eid!='link_url'" class="hidden-xs">{$document->getExtraValueHTML($val->idx)}</td>
 			</block>
 			<td cond="$grant->manager" class="20"><input type="checkbox" name="cart" value="{$document->document_srl}" title="Check This Article" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" /></td>
@@ -92,7 +93,7 @@
 				<block cond="$document_srl!=$document->document_srl">{$no}</block>
 			</td>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<td cond="$module_info->use_category=='Y'" class="hidden-xs width60 nocolorlist" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'">{$category_list[$document->get('category_srl')]->title}</td>
+			<td cond="$module_info->use_category=='Y'" class="hidden-xs width60 nocolorlist">{$category_list[$document->get('category_srl')]->title}</td>
 			<td>
 				<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle($module_info->subject_cut_size)}</a>					
 				<!--@if($document->getCommentCount())-->

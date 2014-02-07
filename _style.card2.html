@@ -88,7 +88,7 @@
 <!--// Normal -->
 <div class="marketing">
     <div class="row">		
-		<div class="marginb30 <!--@if($module_info->display_thumbnailnum=='two')-->col-lg-6 col-md-6 col-sm-6 col-xs-12<!--@end--><!--@if($module_info->display_thumbnailnum=='three')-->col-lg-4 col-md-4 col-sm-4 col-xs-12<!--@end--><!--@if($module_info->display_thumbnailnum=='four')-->col-lg-3 col-md-3 col-sm-4 col-xs-12<!--@end-->" loop="$document_list=>$no,$document">
+		<div class="marginb30 <!--@if($module_info->display_thumbnailnum=='two')-->col-lg-6 col-md-6 col-sm-6 col-xs-12<!--@elseif($module_info->display_thumbnailnum=='three')-->col-lg-4 col-md-4 col-sm-4 col-xs-12<!--@else-->col-lg-3 col-md-3 col-sm-4 col-xs-12<!--@end-->" loop="$document_list=>$no,$document">
 			<div class="relative text-center">
 				<!--@if($document->thumbnailExists($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type))-->				<!--@if($document->variables[status]!='SECRET'||$logged_info->is_admin=='Y'||$logged_info->member_srl==$document->variables[member_srl])-->
 					<div class="thumbnailgrow noimgwh hidden-xs"><div class="wrap">

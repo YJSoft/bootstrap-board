@@ -1,26 +1,12 @@
 <!--#include("_header.html")-->
 <!--@if($oSourceComment->isExists())-->
 <div>
-<!--@if($oSourceComment->getProfileImage())-->
-				<a class="pull-left" href="#">
-					<img src="{$oSourceComment->getProfileImage()}"  alt="profile" class="profile pull-left img-rounded" align="left" />
-				</a>
-				<!--@end-->
 	<h6 class="media-heading">
-		<i class="fa fa-pencil fa-fw"></i> 
-						<!--@if(!$oSourceComment->member_srl)-->							<!--@if($oSourceComment->homepage)-->
-							<a href="{$oSourceComment->getHomepageUrl()}" onclick="window.open(this.href);return false;">{$oSourceComment->getNickName()}</a>
-						<!--@else-->
-							{$oSourceComment->getNickName()}
-						<!--@end-->
-						<!--@else-->
-							<a href="#popup_menu_area" class="member_{$oSourceComment->member_srl}" onclick="return false">{$oSourceComment->getNickName()}</a>
-						<!--@end-->
-		&nbsp; <i class="fa fa-calendar fa-fw"></i> {$oSourceComment->getRegdate('M d, Y')} / 
-						{$oSourceComment->getRegdate('H:i:s')}
-						<!--@if($grant->manager || $module_info->display_ip_address!='N')-->
-						| {$oSourceComment->getIpaddress()}
-						<!--@end-->
+		<a href="#popup_menu_area" class="member_{$oSourceComment->getMemberSrl()}" onclick="return false">{$oSourceComment->getNickName()}</a>
+		| {$oSourceComment->getRegdate("Y.m.d H:i")}
+		<!--@if($grant->manager)-->
+		| {$oSourceComment->get('ipaddress')}
+		<!--@end-->
 	</h6>
 	<div style="padding:10px;">
 		{$oSourceComment->getContent(false)}
@@ -39,7 +25,6 @@
 	
     <div>{$oComment->getEditor()}</div>
 	
-</div>
 	<div class="pull-right">
 	<!--@if(!$is_logged)-->
 	   <input type="text" name="nick_name" value="{$oComment->getNickName()}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
@@ -56,6 +41,9 @@
 		<label for="is_secret">{$lang->secret}</label>
 		<input class="btn btn-default btn-sm" type="submit" value="{$lang->cmd_comment_registration}" />
 	</div>
+</div>
+
+
 </form>
 
 <!--#include("_footer.html")-->

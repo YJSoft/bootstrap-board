@@ -89,7 +89,7 @@
 	<!--@end-->
 	
 <div>
-	<h3><a href="{$oDocument->getPermanentUrl()}">{$oDocument->getTitle()}</a></h3>
+	<h3>{$oDocument->getTitle()}</h3>
 	<div class="viewinfo paddingtb10">
 		<block cond="$module_info->use_category=='Y'"><i class="fa fa-bookmark fa-fw"></i>&nbsp; {$category_list[$oDocument->get('category_srl')]->title} &nbsp; </block>
 		<i class="fa fa-pencil fa-fw"></i>&nbsp; {$oDocument->getNickName()}
@@ -164,9 +164,9 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 			<!--@if($oDocument->getProfileImage())-->
-				<img src="{$oDocument->getProfileImage()}" alt="profile" class="profile pull-left img-rounded" align="left" style=" margin-right:10px;" />
+				<img src="{$oDocument->getProfileImage()}" alt="profile" class="profile" align="left" />
 			<!--@end-->
-			<!--//img src="{$member_info->myprofileimage}" alt="profile" class="pull-left img-rounded"  / -->
+			<img src="{$member_info->myprofileimage}" alt="profile" class="pull-left img-rounded" style="width:180px; height 120px; margin-right:10px;" />
 			<!--@if($oDocument->getSignature())-->
 					{$oDocument->getSignature()}
 			<!--@end-->
@@ -200,22 +200,19 @@
 	<!--@if($oDocument->allowTrackback())-->
 	<!--#include("./trackback.html")-->
 	<!--@end-->
-	<AJAXBoardComment>
+
 	<a name="comment"></a>
 	<!--#include("./comment.html")-->
 	<!--@if($oDocument->allowComment())-->
 	<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
-	
-	<div id="comment" class="paddingtb10 form-inline collapse in">	
+	<div id="comment" class="collapse paddingtb10 form-inline">	
 		<form action="./" method="post" onsubmit="jQuery(this).find('input').each(function(){if(this.title==this.value)this.value='';});return procFilter(this, insert_comment)">
-		
 			<input type="hidden" name="mid" value="{$mid}" />
 			<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
 			<input type="hidden" name="comment_srl" value="" />
 			<input type="hidden" name="content" value="" />
 			<div>{$oDocument->getCommentEditor()}</div>
-			<div class="clearfix"></div>
-			<div class="pull-right" style="margin-bottom:10px;">
+			<div class="pull-right">
 				<!--@if(!$is_logged)-->
 				<input class="form-control" type="text" name="nick_name" value="{$lang->writer}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
 				<input class="form-control" type="password" name="password" value="{$lang->password}" title="{$lang->password}" onfocus="if(this.value==this.title)this.value='';return false;" />
@@ -233,10 +230,10 @@
 				{$lang->secret}</label>
 				<input class="btn btn-default btn-sm" type="submit" value="{$lang->cmd_comment_registration}" />
 			</div>
+			<div class="clearfix"></div>
 		</form>
 	</div>
 	<!--@end-->
 	<!--@end-->
-	</AJAXBoardComment>
 </div>
 <div class="clearfix"></div>

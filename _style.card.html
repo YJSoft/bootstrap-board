@@ -87,7 +87,7 @@
 
 <!--// Normal -->
 
-<div class="<!--@if($module_info->display_thumbnailnum=='two')-->col-lg-6 col-md-6 col-sm-6 col-xs-12<!--@end--><!--@if($module_info->display_thumbnailnum=='three')-->col-lg-4 col-md-4 col-sm-4 col-xs-12<!--@end--><!--@if($module_info->display_thumbnailnum=='four')-->col-lg-3 col-md-3 col-sm-4 col-xs-12<!--@end-->" loop="$document_list=>$no,$document">
+<div class="<!--@if($module_info->display_thumbnailnum=='two')-->col-lg-6 col-md-6 col-sm-6 col-xs-12<!--@elseif($module_info->display_thumbnailnum=='three')-->col-lg-4 col-md-4 col-sm-4 col-xs-12<!--@else-->col-lg-3 col-md-3 col-sm-4 col-xs-12<!--@end-->" loop="$document_list=>$no,$document">
 	<div class="thumbnail relative">
 		<a href="{getUrl('document_srl',$document->document_srl,'listStyle',$listStyle, 'cpage','')}">
 		<!--@if($document->thumbnailExists($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type))-->
