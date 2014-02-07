@@ -1,18 +1,19 @@
-<load target="css/board.css" />
-<!--@if($module_info->load_bootstrap=='Y')-->
-<load target="css/bootstrap.min.css" />
-<load target="css/font-awesome.min.css" />
-<load target="js/bootstrap.min.js" />
 <script type="text/javascript">
  jQuery("link[rel=stylesheet][href*='common/css/xe.min.css']").remove();
-</script>
-<!--@end-->
-<load target="js/bootstrap-hover-dropdown.min.js" />
+ </script>
+<load target="css/board.css" />
+<load target="css/bootstrap.min.css" />
+<load target="css/font-awesome.min.css" />
 <load target="js/board.js" />
-
-
-{Context::set("admin_bar", "false")} 
-
+<!--@if($module_info->bootstrap_js=='N')-->
+<load target="js/bootstrap.min.js" />
+<!--@end-->
+{Context::set("admin_bar", "false");}
+{@
+ $oDB = &DB::getInstance();
+ $query = $oDB->_query('select count(*) as total from xe_documents where module_srl ='.$module_info->module_srl);
+ $result = $oDB->_fetch($query);
+}
 <!--@if(!$module_info->duration_new = (int)$module_info->duration_new)-->{@ $module_info->duration_new = 12 }<!--@end-->
 <!--@if(!$module_info->content_cut_size = (int)$module_info->content_cut_size)-->{@ $module_info->content_cut_size= 800 }<!--@end-->
 <!--@if(!$module_info->thumnailnum)-->{@ $module_info->thumnailnum = four }<!--@end-->

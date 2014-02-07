@@ -14,7 +14,7 @@
 			<li class="media"  id="comment_{$comment->comment_srl}" <!--@if($comment->get('depth'))--> style="margin-left:{($comment->get('depth'))*15}px" <!--@end-->>
 				<!--@if($comment->getProfileImage())-->
 				<a class="pull-left" href="#">
-					<img src="{$comment->getProfileImage()}"  alt="profile" class="profile pull-left img-rounded" align="left" />
+					<img class="media-object" data-src="holder.js/64x64" alt="Generic placeholder image">
 				</a>
 				<!--@end-->
 				<div class="media-body">
@@ -103,5 +103,4 @@
 	<!--@end-->
 </div>
 <div class="clearfix"></div>
-
 <!--@end-->

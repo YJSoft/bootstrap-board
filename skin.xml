@@ -1,34 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skin version="0.2">
-    <title xml:lang="ko">Bootstrap Board Skin</title>
+    <title xml:lang="ko">rest default</title>
     <description xml:lang="ko">
-    원본 rest board
-    수정 YJSoft(yjsoft@yjsoft.pe.kr)
+		rest default
     </description>
     <version>0.1</version>
     <date>2014-01-10</date>
     <author email_address="" link="">
         <name xml:lang="ko">ahrim</name>
     </author>
-    <author email_address="yjsoft@yjsoft.pe.kr" link="http://yjsoft.pe.kr">
-        <name xml:lang="ko">YJSoft</name>
-    </author>
-
     <license>GPL v2 or later</license>
-
+	<navigation>
+		<index var="sort_index" default="document_srl" order="order_type" />
+		<list_count var="list_count" default="20" />
+		<page_count var="page_count" default="10" />
+		<page var="page" default="1" />
+	</navigation>
     <extra_vars>
-    <var name="load_bootstrap" type="select">
-            <title xml:lang="ko">부트스트랩 CSS/JS 불러오기</title>
-            <description xml:lang="ko">
-                Simplestrap 등 부트스트랩 기반 레이아웃 사용시 끄셔야 레이아웃이 잘 뜹니다.
-            </description>
-            <options value="N">
-                <title xml:lang="ko">끔</title>
-            </options>
+        <var name="bootstrap_js" type="select">
+            <title xml:lang="ko">부트스트랩 레이아웃 사용 여부</title>
+            <title xml:lang="zh-CN">显示管理设置组</title>
+            <title xml:lang="jp">設定表示</title>
+            <title xml:lang="en">Display Setup</title>
+			<title xml:lang="vi">Cài đặt</title>
+            <title xml:lang="es">Muestra la información de la Configuración</title>
+            <title xml:lang="zh-TW">顯示設置</title>
+            <title xml:lang="tr">Görüntü Ayarları</title>
             <options value="Y">
-                <title xml:lang="ko">켬</title>
+                <title xml:lang="ko">Bootstrap 사용 중</title>
+                <title xml:lang="en">display</title>
+				<title xml:lang="vi">Hiển thị</title>
+                <title xml:lang="jp">表示</title>
+                <title xml:lang="zh-CN">显示</title>
+                <title xml:lang="es">display</title>
+                <title xml:lang="zh-TW">顯示</title>
+                <title xml:lang="tr">görüntüle</title>
             </options>
-    </var>	
+            <options value="N">
+                <title xml:lang="ko">bootstrap 사용하지 않음</title>
+                <title xml:lang="en">not display</title>
+				<title xml:lang="vi">Không hiển thị</title>
+                <title xml:lang="jp">非表示</title>
+                <title xml:lang="zh-CN">不显示</title>
+                <title xml:lang="es">not display</title>
+                <title xml:lang="zh-TW">隱藏</title>
+                <title xml:lang="tr">görüntüleme</title>
+            </options>
+        </var>	
         <var name="default_style" type="select">
             <title xml:lang="ko">기본 형태</title>
             <title xml:lang="jp">デフォルトスタイル</title>
@@ -150,7 +168,6 @@
                 <title xml:lang="zh-TW">隱藏</title>
                 <title xml:lang="tr">görüntüleme</title>
             </options>
-            <description />
         </var>
         <var name="display_listset_button" type="select">
             <title xml:lang="ko">리스트설정 표시</title>
@@ -181,7 +198,6 @@
                 <title xml:lang="zh-TW">隱藏</title>
                 <title xml:lang="tr">görüntüleme</title>
             </options>
-            <description />
         </var>		
         <var name="display_categoryset_button" type="select">
             <title xml:lang="ko">카테고리 표시</title>
@@ -222,6 +238,16 @@
                 <title xml:lang="zh-TW">顯示</title>
                 <title xml:lang="tr">görüntüle</title>
             </options>	
+            <options value="dropdown">
+                <title xml:lang="ko">드롭다운형</title>
+                <title xml:lang="en">display</title>
+				<title xml:lang="vi">Hiển thị</title>
+                <title xml:lang="jp">表示</title>
+                <title xml:lang="zh-CN">显示</title>
+                <title xml:lang="es">display</title>
+                <title xml:lang="zh-TW">顯示</title>
+                <title xml:lang="tr">görüntüle</title>
+            </options>			
             <options value="pillsa">
                 <title xml:lang="ko">카드형 (위치를 설정 옆으로)</title>
                 <title xml:lang="en">display</title>
@@ -233,6 +259,29 @@
                 <title xml:lang="tr">görüntüle</title>
             </options>
         </var>	
+        <var name="display_categoryset_badge" type="select">
+            <title xml:lang="ko">카테고리에 글 수 표시</title>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">display</title>
+				<title xml:lang="vi">Hiển thị</title>
+                <title xml:lang="jp">表示</title>
+                <title xml:lang="zh-CN">显示</title>
+                <title xml:lang="es">display</title>
+                <title xml:lang="zh-TW">顯示</title>
+                <title xml:lang="tr">görüntüle</title>
+            </options>
+            <options value="N">
+                <title xml:lang="ko">출력하지 않음</title>
+                <title xml:lang="en">not display</title>
+				<title xml:lang="vi">Không hiển thị</title>
+                <title xml:lang="jp">非表示</title>
+                <title xml:lang="zh-CN">不显示</title>
+                <title xml:lang="es">not display</title>
+                <title xml:lang="zh-TW">隱藏</title>
+                <title xml:lang="tr">görüntüleme</title>
+            </options>
+        </var>			
         <var name="display_listheadset_button" type="select">
             <title xml:lang="ko">테이블 헤드 표시</title>
             <title xml:lang="zh-CN">显示管理设置组</title>
@@ -262,7 +311,6 @@
                 <title xml:lang="zh-TW">隱藏</title>
                 <title xml:lang="tr">görüntüleme</title>
             </options>
-            <description />
         </var>	
         <var name="display_ip_address" type="select">
             <title xml:lang="ko">ip 주소</title>
@@ -293,7 +341,6 @@
                 <title xml:lang="zh-TW">隱藏</title>
                 <title xml:lang="tr">görüntüleme</title>
             </options>
-            <description />
         </var>			
         <var name="title" type="text">
             <title xml:lang="ko">게시판 제목</title>
@@ -546,7 +593,16 @@
                 <title xml:lang="zh-TW">隱藏</title>
                 <title xml:lang="tr">görüntüleme</title>
             </options>
-            <description />
         </var>	
+		<var name="display_thumbnailcover" type="select">
+            <title xml:lang="ko">갤러리에 커버 적용</title>
+            <options value="Y">
+                <title xml:lang="ko">커버 적용</title>
+            </options>			
+            <options value="N">
+                <title xml:lang="ko">커버 적용 안함</title>
+            </options>
+        </var>			
     </extra_vars>
 </skin>
+

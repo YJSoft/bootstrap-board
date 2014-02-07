@@ -86,7 +86,38 @@
 </table>
 	
 <!--// Normal -->
+<!--@if($module_info->display_thumbnailcover=='Y')--><div class="row"><!--@end-->	
 <div class="<!--@if($module_info->display_thumbnailnum=='two')-->col-lg-6 col-md-6 col-sm-6 col-xs-12<!--@end--><!--@if($module_info->display_thumbnailnum=='three')-->col-lg-4 col-md-4 col-sm-4 col-xs-12<!--@end--><!--@if($module_info->display_thumbnailnum=='four')-->col-lg-3 col-md-3 col-sm-4 col-xs-12<!--@end-->" loop="$document_list=>$no,$document">
+<!--@if($module_info->display_thumbnailcover=='Y')-->
+	<div class="thumbnailover relative noimgwh">
+		<a href="{getUrl('document_srl',$document->document_srl,'listStyle',$listStyle, 'cpage','')}"  >
+			<!--@if($document->thumbnailExists($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type))-->
+				<!--@if($document->variables[status]!='SECRET'||$logged_info->is_admin=='Y'||$logged_info->member_srl==$document->variables[member_srl])-->
+				<div class="thumbnailgrow"><div class="wrap">
+				<img src="{$document->getThumbnail($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type)}" alt=".." class="thumbnailimg"></div></div>			
+				<!--@else-->
+				<div class="wrap focus"><div class="padding10">비밀글입니다</div></div>
+				<!--@end-->			
+			<!--@else-->
+			<div class="thumbnailcoverimg wrap focus text-center">
+				<h4>{$document->getTitle($module_info->subject_cut_size)}</h3>
+				<p class="content">{$document->getSummary($module_info->content_cut_size)}</p>
+				<p><span class="btn btn-default" role="button">View details &raquo;</span></p>
+			</div>
+			<!--@end-->
+			<div class="thumbnailcover text-center">
+				<h4>{$document->getTitle($module_info->subject_cut_size)}</h3>
+				<p class="content">{$document->getSummary($module_info->content_cut_size)}</p>
+				<p><span class="btn btn-primary" role="button">View details &raquo;</span></p>
+			</div>
+		</a>	
+			<div cond="$grant->manager" class="rcheckbox">
+				<input cond="$grant->manager" type="checkbox" name="cart" value="{$document->document_srl}" title="Check this" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" />
+			</div>					
+		</a>			
+	</div>
+<!--@if($module_info->display_thumbnailcover=='Y')--></div><!--@end-->	
+<!--@else-->
 	<div class="thumbnail relative" >
 		<a href="{getUrl('document_srl',$document->document_srl,'listStyle',$listStyle, 'cpage','')}"  >
 			<!--@if($document->thumbnailExists($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type))-->
@@ -108,5 +139,6 @@
 			</div>
 		</a>			
 	</div>
+<!--@end-->	
 </div>
 <div class="clearfix"></div>
