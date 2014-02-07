@@ -16,10 +16,6 @@
 			<!--@end-->
 		<!--@end-->
 	<!--@end-->
-	{@
-		$oDocumentModel = &getModel('document');
-		$count_total = $oDocumentModel->getDocumentCount($module_info->module_srl);
-	}
 	<ul class="nav nav-pills font12 pull-left hidden-sm hidden-xs" cond="$module_info->use_category=='Y'">
 		<li class="active"|cond="!$category"><a href="{getUrl('category','','page','','document_srl','')}" title="{$lang->document_count} '{number_format($total_count)}'"><i class="fa fa-home fa-fw"></i> {$lang->total}<span class="badge">{$count_total}</span></a></li>
 		<li class="<!--@if($category==$val->category_srl || $parent_cate===$val->category_srl)--> active<!--@end-->" loop="$cate_list=>$key,$val" ><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}" class="dropdown dropdown-toggle" data-hover="dropdown">{$val->title}
@@ -46,7 +42,7 @@
 	</div>	
 	
 	<!--@end-->
-	<div class="btn-group btn-group-sm pull-right paddingb10">
+	<div class="btn-group btn-group-sm pull-right paddingb10  hidden-sm hidden-xs">
 		<!--@if($grant->manager && $module_info->display_setup_button != 'N')-->
 		<a class="btn btn-default" href="{getUrl('act','dispBoardAdminBoardInfo')}" title="{$lang->cmd_setup}"><i class="fa fa-cog"></i></a>
 		<!--@end-->
@@ -59,6 +55,26 @@
 		<a class="btn btn-default" cond="$grant->manager" href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;"><i class="fa fa-check-square-o"></i></a>
 		<!--@end-->
 	</div>
+	<div class="btn-group hidden-lg hidden-md pull-right">
+		<button type="button" class="btn btn-default"><i class="fa fa-cog"></i></button>
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		<span class="caret"></span>
+		<span class="sr-only">Toggle Dropdown</span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="{getUrl('listStyle','list','act','','document_srl','')}" title="Classic Style"><i class="fa fa-list"></i> 리스트형</a></li>
+			<li><a href="{getUrl('listStyle','webzine','act','','document_srl','')}" title="Zine Style"><i class="fa fa-th-list"></i> 웹진형</a></li>
+			<li><a href="{getUrl('listStyle','gallery','act','','document_srl','')}" title="Gallery Style"><i class="fa fa-th"></i> 갤러리형</a></li>
+			<li><a href="{getUrl('listStyle','card','act','','document_srl','')}" title="card Style"><i class="fa fa-th-large"></i> 카드형</a></li>
+			<li><a href="{getUrl('listStyle','card2','act','','document_srl','')}" title="card Style"><i class="fa fa-th-large"></i> 마케팅형</a></li>
+			<!--@if($grant->manager && $module_info->display_setup_button != 'N')-->
+			<li><a href="{getUrl('act','dispBoardAdminBoardInfo')}" title="{$lang->cmd_setup}"><i class="fa fa-cog"></i> 설정</a>
+			<!--@end-->			
+			<!--@if($grant->manager)-->
+			<li><a cond="$grant->manager" href="{getUrl('','module','document','act','dispDocumentManageDocument')}" onclick="popopen(this.href,'manageDocument'); return false;"><i class="fa fa-check-square-o"></i> 글관리</a></li>
+			<!--@end-->	  
+	  </ul>
+	</div>
 	<div class="clearfix"></div>
 </div>
 <!--@end-->
@@ -66,21 +82,18 @@
 <!--@if($module_info->display_categoryset_button == 'pillsa')-->
 <!--@else-->
 <ul class="nav <!--@if($module_info->display_categoryset_button == 'tabs')-->nav-tabs<!--@end--><!--@if($module_info->display_categoryset_button == 'pills')-->nav-pills<!--@end--><!--@if($module_info->display_categoryset_button == 'nonav')-->hidden<!--@end--> font12" cond="$module_info->use_category=='Y'">
-	<li class="active"|cond="!$category"><a href="{getUrl('category','','page','','document_srl','')}" title="{$lang->document_count} '{number_format($total_count)}'"><i class="fa fa-home fa-fw"></i> {$lang->total}</a></li>
-	<li class="visible-lg visible-md<!--@if($category==$val->category_srl)--> active<!--@end-->" loop="$cate_list=>$key,$val" ><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}">{$val->title}</a>
-		<ul cond="count($val->children)">
-			<li loop="$val->children=>$idx,$item" class="active"|cond="$category==$item->category_srl"><a href="{getUrl(category,$item->category_srl,'document_srl','', 'page', '')}">{$item->title}</a></li>
-		</ul>
+	<li class="active"|cond="!$category">
+<a href="{getUrl('category','','page','','document_srl','')}" title="{$lang->document_count} '{number_format($total_count)}'"><i class="fa fa-home fa-fw"></i> {$lang->total} <span class="badge" cond="$module_info->display_categoryset_badge=='Y'">{$result->total}</span></a>
+</li>
+<li class="hidden-sm hidden-xs <!--@if($category==$val->category_srl)-->active<!--@end-->" loop="$cate_list=>$key,$val" >
+<a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}">{$val->title} <span class="badge" cond="$module_info->display_categoryset_badge=='Y'">{$val->document_count}</span></a>
 	</li>
-    <li class="dropdown visible-sm visible-xs">
+    <li class="dropdown hidden-lg hidden-md" class="active"|cond="$category">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="fa fa-sort-asc fa-fw"></i>
+         분류 &nbsp;<i class="fa fa-sort-asc"></i>
       </a>
       <ul class="dropdown-menu" role="menu">
-        <li loop="$cate_list=>$key,$val"><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}">{$val->title}</a></li>
-			<ul cond="count($val->children)">
-				<li loop="$val->children=>$idx,$item" ><a href="{getUrl(category,$item->category_srl,'document_srl','', 'page', '')}">{$item->title}</a></li>
-			</ul>
+        <li loop="$cate_list=>$key,$val" class="active"|cond="$category==$val->category_srl"><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}">{$val->title} <span class="badge pull-right" cond="$module_info->display_categoryset_badge=='Y'">{$val->document_count}</span></a></li>
       </ul>
     </li>
 </ul>	

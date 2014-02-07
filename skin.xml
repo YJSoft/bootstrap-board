@@ -16,6 +16,13 @@
 
     <license>GPL v2 or later</license>
 
+<navigation>
+		<index var="sort_index" default="document_srl" order="order_type" />
+		<list_count var="list_count" default="20" />
+		<page_count var="page_count" default="10" />
+		<page var="page" default="1" />
+	</navigation>
+
     <extra_vars>
     <var name="load_bootstrap" type="select">
             <title xml:lang="ko">부트스트랩 CSS/JS 불러오기</title>
@@ -195,6 +202,35 @@
             <options value="nonav">
                 <title xml:lang="ko">출력하지 않음</title>
                 <title xml:lang="en">not display</title>
+            </options>
+            <options value="tabs">
+                <title xml:lang="ko">탭형</title>
+                <title xml:lang="en">tab</title>
+            </options>
+            <options value="pills">
+                <title xml:lang="ko">카드형</title>
+                <title xml:lang="en">card</title>
+            </options>	
+            <options value="pillsa">
+                <title xml:lang="ko">드롭다운형</title>
+                <title xml:lang="en">Dropdown</title>
+            </options>
+        </var>	
+	<var name="display_categoryset_badge" type="select">
+            <title xml:lang="ko">카테고리에 글 수 표시</title>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">display</title>
+				<title xml:lang="vi">Hiển thị</title>
+                <title xml:lang="jp">表示</title>
+                <title xml:lang="zh-CN">显示</title>
+                <title xml:lang="es">display</title>
+                <title xml:lang="zh-TW">顯示</title>
+                <title xml:lang="tr">görüntüle</title>
+            </options>
+            <options value="N">
+                <title xml:lang="ko">출력하지 않음</title>
+                <title xml:lang="en">not display</title>
 				<title xml:lang="vi">Không hiển thị</title>
                 <title xml:lang="jp">非表示</title>
                 <title xml:lang="zh-CN">不显示</title>
@@ -202,37 +238,8 @@
                 <title xml:lang="zh-TW">隱藏</title>
                 <title xml:lang="tr">görüntüleme</title>
             </options>
-            <options value="tabs">
-                <title xml:lang="ko">탭형</title>
-                <title xml:lang="en">display</title>
-				<title xml:lang="vi">Hiển thị</title>
-                <title xml:lang="jp">表示</title>
-                <title xml:lang="zh-CN">显示</title>
-                <title xml:lang="es">display</title>
-                <title xml:lang="zh-TW">顯示</title>
-                <title xml:lang="tr">görüntüle</title>
-            </options>
-            <options value="pills">
-                <title xml:lang="ko">카드형</title>
-                <title xml:lang="en">display</title>
-				<title xml:lang="vi">Hiển thị</title>
-                <title xml:lang="jp">表示</title>
-                <title xml:lang="zh-CN">显示</title>
-                <title xml:lang="es">display</title>
-                <title xml:lang="zh-TW">顯示</title>
-                <title xml:lang="tr">görüntüle</title>
-            </options>	
-            <options value="pillsa">
-                <title xml:lang="ko">카드형 (위치를 설정 옆으로)</title>
-                <title xml:lang="en">display</title>
-				<title xml:lang="vi">Hiển thị</title>
-                <title xml:lang="jp">表示</title>
-                <title xml:lang="zh-CN">显示</title>
-                <title xml:lang="es">display</title>
-                <title xml:lang="zh-TW">顯示</title>
-                <title xml:lang="tr">görüntüle</title>
-            </options>
-        </var>	
+        </var>
+
         <var name="display_listheadset_button" type="select">
             <title xml:lang="ko">테이블 헤드 표시</title>
             <title xml:lang="zh-CN">显示管理设置组</title>
@@ -548,5 +555,15 @@
             </options>
             <description />
         </var>	
+
+		<var name="display_thumbnailcover" type="select">
+            <title xml:lang="ko">갤러리에 커버 적용</title>
+            <options value="Y">
+                <title xml:lang="ko">커버 적용</title>
+            </options>			
+            <options value="N">
+                <title xml:lang="ko">커버 적용 안함</title>
+            </options>
+        </var>		
     </extra_vars>
 </skin>

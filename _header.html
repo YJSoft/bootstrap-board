@@ -59,3 +59,11 @@
 <!--@if($module_info->comment)-->
 <div class="alert alert-info">{$module_info->comment}</div>
 <!--@end-->
+
+{@
+ $oDB = &DB::getInstance();
+ $query = $oDB->_query('select count(*) as total from xe_documents where module_srl ='.$module_info->module_srl);
+ $result = $oDB->_fetch($query);
+ $oDocumentModel = &getModel('document');
+ $count_total = $oDocumentModel->getDocumentCount($module_info->module_srl);
+}
