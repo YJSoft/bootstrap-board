@@ -93,7 +93,7 @@
 				<block cond="$document_srl!=$document->document_srl">{$no}</block>
 			</td>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<td cond="$module_info->use_category=='Y'" class="hidden-xs width70 nocolorlist nowrap">{$category_list[$document->get('category_srl')]->title}</td>
+			<td cond="$module_info->use_category=='Y'" class="hidden-xs width70 nocolorlist nowrap" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'">{$category_list[$document->get('category_srl')]->title}</td>
 			<td>
 				<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle($module_info->subject_cut_size)}</a>					
 				<!--@if($document->getCommentCount())-->
