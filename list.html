@@ -1,3 +1,4 @@
+<div id="restboard">
 <!--#include("_header.html")-->
 
 <!--@if($oDocument->isExists() && $module_info->default_style != 'blog')-->
@@ -16,7 +17,7 @@
 			<!--@end-->
 		<!--@end-->
 	<!--@end-->
-	<ul class="nav nav-pills font12 pull-left hidden-sm hidden-xs" cond="$module_info->use_category=='Y'">
+	<ul class="nav nav-pills pull-left hidden-sm hidden-xs" cond="$module_info->use_category=='Y'">
 		<li class="active"|cond="!$category"><a href="{getUrl('category','','page','','document_srl','')}" title="{$lang->document_count} '{number_format($total_count)}'"><i class="fa fa-home fa-fw"></i> {$lang->total}<span class="badge">{$count_total}</span></a></li>
 		<li class="<!--@if($category==$val->category_srl || $parent_cate===$val->category_srl)--> active<!--@end-->" loop="$cate_list=>$key,$val" ><a href="{getUrl(category,$val->category_srl,'document_srl','', 'page', '')}" class="dropdown dropdown-toggle" data-hover="dropdown">{$val->title}
 			<span class="badge">{$val->document_count}</span>
@@ -81,7 +82,7 @@
 
 <!--@if($module_info->display_categoryset_button == 'pillsa')-->
 <!--@else-->
-<ul class="nav <!--@if($module_info->display_categoryset_button == 'tabs')-->nav-tabs<!--@end--><!--@if($module_info->display_categoryset_button == 'pills')-->nav-pills<!--@end--><!--@if($module_info->display_categoryset_button == 'nonav')-->hidden<!--@end--> font12" cond="$module_info->use_category=='Y'">
+<ul class="nav <!--@if($module_info->display_categoryset_button == 'tabs')-->nav-tabs<!--@end--><!--@if($module_info->display_categoryset_button == 'pills')-->nav-pills<!--@end--><!--@if($module_info->display_categoryset_button == 'nonav')-->hidden<!--@end-->" cond="$module_info->use_category=='Y'">
 	<li class="active"|cond="!$category">
 <a href="{getUrl('category','','page','','document_srl','')}" title="{$lang->document_count} '{number_format($total_count)}'"><i class="fa fa-home fa-fw"></i> {$lang->total} <span class="badge" cond="$module_info->display_categoryset_badge=='Y'">{$result->total}</span></a>
 </li>
@@ -146,3 +147,4 @@
 </div>
 <div class="clearfix"></div>
 <!--#include("_footer.html")-->
+</div>
