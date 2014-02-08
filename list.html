@@ -2,7 +2,7 @@
 $oDocumentModel = &getModel('document');
 $count_total = $oDocumentModel->getDocumentCount($module_info->module_srl);
 }
-
+<div id="restboard">
 <!--#include("_header.html")-->
 <!--@if($oDocument->isExists() && $module_info->default_style != 'blog')-->
     <!--#include("./view_document.html")-->
@@ -81,7 +81,7 @@ $count_total = $oDocumentModel->getDocumentCount($module_info->module_srl);
 	</li>
 </ul>
 <!--@else-->
-<ul class="nav <!--@if($module_info->display_categoryset_button == 'tabs')-->nav-tabs<!--@end--><!--@if($module_info->display_categoryset_button == 'pills')-->nav-pills<!--@end--><!--@if($module_info->display_categoryset_button == 'nonav')-->hidden<!--@end--> font12" cond="$module_info->use_category=='Y'">
+<ul class="nav <!--@if($module_info->display_categoryset_button == 'tabs')-->nav-tabs<!--@end--><!--@if($module_info->display_categoryset_button == 'pills')-->nav-pills<!--@end--><!--@if($module_info->display_categoryset_button == 'nonav')-->hidden<!--@end-->" cond="$module_info->use_category=='Y'">
 	<li class="active"|cond="!$category">
 		<a href="{getUrl('category','','page','','document_srl','')}" title="{$lang->document_count} '{number_format($total_count)}'"><i class="fa fa-home fa-fw"></i> {$lang->total} <span class="badge" cond="$module_info->display_categoryset_badge=='Y'">{$count->total}</span></a>
 	</li>
@@ -145,3 +145,4 @@ $count_total = $oDocumentModel->getDocumentCount($module_info->module_srl);
 </ul>
 <div class="clearfix"></div>
 <!--#include("_footer.html")-->
+</div>

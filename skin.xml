@@ -47,6 +47,15 @@
                 <title xml:lang="tr">görüntüleme</title>
             </options>
         </var>	
+        <var name="fontsize12" type="select">
+            <title xml:lang="ko">폰트 크기 12px</title>
+            <options value="Y">
+                <title xml:lang="ko">12px (기본)</title>
+            </options>
+            <options value="N">
+                <title xml:lang="ko">지정안함</title>
+            </options>
+        </var>			
         <var name="default_style" type="select">
             <title xml:lang="ko">기본 형태</title>
             <title xml:lang="jp">デフォルトスタイル</title>
@@ -563,6 +572,26 @@
             <title xml:lang="es">Muestra la información de la Configuración</title>
             <title xml:lang="zh-TW">顯示設置</title>
             <title xml:lang="tr">Görüntü Ayarları</title>
+            <options value="four">
+                <title xml:lang="ko">4개</title>
+                <title xml:lang="en">not display</title>
+				<title xml:lang="vi">Không hiển thị</title>
+                <title xml:lang="jp">非表示</title>
+                <title xml:lang="zh-CN">不显示</title>
+                <title xml:lang="es">not display</title>
+                <title xml:lang="zh-TW">隱藏</title>
+                <title xml:lang="tr">görüntüleme</title>
+            </options>		
+            <options value="three">
+                <title xml:lang="ko">3개</title>
+                <title xml:lang="en">display</title>
+				<title xml:lang="vi">Hiển thị</title>
+                <title xml:lang="jp">表示</title>
+                <title xml:lang="zh-CN">显示</title>
+                <title xml:lang="es">display</title>
+                <title xml:lang="zh-TW">顯示</title>
+                <title xml:lang="tr">görüntüle</title>
+            </options>			
             <options value="two">
                 <title xml:lang="ko">2개</title>
                 <title xml:lang="en">display</title>
@@ -573,26 +602,6 @@
                 <title xml:lang="zh-TW">顯示</title>
                 <title xml:lang="tr">görüntüle</title>
             </options>			
-            <options value="three">
-                <title xml:lang="ko">3개</title>
-                <title xml:lang="en">display</title>
-				<title xml:lang="vi">Hiển thị</title>
-                <title xml:lang="jp">表示</title>
-                <title xml:lang="zh-CN">显示</title>
-                <title xml:lang="es">display</title>
-                <title xml:lang="zh-TW">顯示</title>
-                <title xml:lang="tr">görüntüle</title>
-            </options>
-            <options value="four">
-                <title xml:lang="ko">4개</title>
-                <title xml:lang="en">not display</title>
-				<title xml:lang="vi">Không hiển thị</title>
-                <title xml:lang="jp">非表示</title>
-                <title xml:lang="zh-CN">不显示</title>
-                <title xml:lang="es">not display</title>
-                <title xml:lang="zh-TW">隱藏</title>
-                <title xml:lang="tr">görüntüleme</title>
-            </options>
         </var>	
 		<var name="display_thumbnailcover" type="select">
             <title xml:lang="ko">갤러리에 커버 적용</title>

@@ -8,6 +8,15 @@
 <!--@if($module_info->bootstrap_js=='N')-->
 <load target="js/bootstrap.min.js" />
 <!--@end-->
+<!--@if($module_info->fontsize12=='N')-->
+<!--@else-->
+ <style type="text/css"> 
+#restboard p {font-size:12px;}
+#restboard table {font-size:12px;}
+#restboard div {font-size:12px;}
+#restboard li {font-size:12px;}
+ </style>
+<!--@end-->
 {Context::set("admin_bar", "false");}
 <!--@if(!$module_info->duration_new = (int)$module_info->duration_new)-->{@ $module_info->duration_new = 12 }<!--@end-->
 <!--@if(!$module_info->content_cut_size = (int)$module_info->content_cut_size)-->{@ $module_info->content_cut_size= 800 }<!--@end-->
