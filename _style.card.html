@@ -105,7 +105,7 @@
 			<h6><b>{$document->getTitle($module_info->subject_cut_size)}</b></h6>
 			<p class="rcont">{$document->getSummary($module_info->content_cut_size)}</p>
 			<ul class="list-inline nocolor">
-				<li cond="$module_info->use_category=='Y'">
+				<li cond="$module_info->use_category=='Y'"  style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'">
 					{$category_list[$document->get('category_srl')]->title} &nbsp; |
 				</li>
 				<li><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a> &nbsp; |</li>
