@@ -8,7 +8,7 @@
 			<th scope="col" cond="$val->type=='no' && $val->idx==-1" class="hidden-xs width70" ><a href="{getUrl('order_type',$order_type)}" title="<!--@if($order_type=="desc")-->{$lang->order_desc}<!--@else-->{$lang->order_asc}<!--@end-->">{$lang->no}</a>
 			</th>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<th scope="col" cond="$module_info->use_category=='Y'" class="hidden-xs width70">{$lang->category}
+			<th scope="col" cond="$module_info->use_category=='Y'" class="hidden-xs width80">{$lang->category}
 			</th>
 			<th scope="col" class="text-center"><a href="{getUrl('sort_index','title','order_type',$order_type)}">{$lang->title} <i cond="$sort_index=='title'" class="fa fa-sort-asc fa-fw"></i></a>
 			</th>
@@ -45,7 +45,7 @@
 				<block cond="$document_srl==$document->document_srl">&raquo;</block><strong cond="$document_srl!=$document->document_srl">{$lang->notice}</strong>
 			</td>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<td cond="$module_info->use_category=='Y'" class="hidden-xs width70 nowrap"><strong>{$category_list[$document->get('category_srl')]->title}</strong></td>
+			<td cond="$module_info->use_category=='Y'" class="hidden-xs width80 nowrap" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'"><strong>{$category_list[$document->get('category_srl')]->title}</strong></td>
 			<td>
 				<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}"><strong>{$document->getTitle($module_info->subject_cut_size)}</strong></a>
 				<!--@if($document->getCommentCount())-->
