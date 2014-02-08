@@ -45,7 +45,7 @@
 				<block cond="$document_srl==$document->document_srl">&raquo;</block><strong cond="$document_srl!=$document->document_srl">{$lang->notice}</strong>
 			</td>
 			<block cond="$val->type=='title' && $val->idx==-1">
-			<td cond="$module_info->use_category=='Y'" class="hidden-xs width70"><strong>{$category_list[$document->get('category_srl')]->title}</strong></td>
+			<td cond="$module_info->use_category=='Y'" class="hidden-xs width70" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'"><strong>{$category_list[$document->get('category_srl')]->title}</strong></td>
 			<td>
 				<a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}"><strong>{$document->getTitle($module_info->subject_cut_size)}</strong></a>
 				<!--@if($document->getCommentCount())-->
