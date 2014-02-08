@@ -128,7 +128,7 @@
 				<input cond="$grant->manager" class="pull-right" type="checkbox" name="cart" value="{$document->document_srl}" title="Check" onclick="doAddDocumentCart(this)" checked="checked"|cond="$document->isCarted()" />
 			</h5>
 			<ul class="list-inline viewinfo nocolor paddingtb10">
-				<li cond="$module_info->use_category=='Y'"><i class="fa fa-bookmark fa-fw"></i> {$category_list[$document->get('category_srl')]->title}</li>
+				<li cond="$module_info->use_category=='Y'" style="color:{$category_list[$document->get('category_srl')]->color}"|cond="$category_list[$document->get('category_srl')]->color!='transparent'"><i class="fa fa-bookmark fa-fw"></i> {$category_list[$document->get('category_srl')]->title}</li>
 				<li cond="$list_config['nick_name']"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false"><i class="fa fa-pencil fa-fw"></i> {$document->getNickName()}</a></li>
 				<li cond="$list_config['UserID']"><i class="fa fa-pencil fa-fw"></i> {$document->getUserID()}</li>
 				<li cond="$list_config['UserName']"><i class="fa fa-pencil fa-fw"></i> {$document->getUserName()}</li>
