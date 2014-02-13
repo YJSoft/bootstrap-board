@@ -92,15 +92,7 @@
 	<h3><a href="{$oDocument->getPermanentUrl()}">{$oDocument->getTitle()}</a></h3>
 	<div class="viewinfo paddingtb10">
 		<block cond="$module_info->use_category=='Y'"><i class="fa fa-bookmark fa-fw"></i>&nbsp; {$category_list[$oDocument->get('category_srl')]->title} &nbsp; </block>
-		<i class="fa fa-pencil fa-fw"></i>&nbsp; <!--@if(!$oDocument->member_srl)-->							<!--@if($oDocument->homepage)-->
-							<a href="{$oDocument->getHomepageUrl()}" onclick="window.open(this.href);return false;">{$oDocument->getNickName()}</a>
-						<!--@else-->
-							{$oDocument->getNickName()}
-						<!--@end-->
-						<!--@else-->
-							<a href="#popup_menu_area" class="member_{$oDocument->member_srl}" onclick="return false">{$oDocument->getNickName()}</a>
-						<!--@end-->
-		&nbsp; <i class="fa fa-calendar fa-fw"></i>&nbsp; {$oDocument->getRegdate('M d, Y')}
+		<i class="fa fa-pencil fa-fw"></i>&nbsp;<!--@if(!$oDocument->member_srl)--><!--@if($oDocument->homepage)--><a href="{$oDocument->getHomepageUrl()}" onclick="window.open(this.href);return false;">{$oDocument->getNickName()}</a><!--@else-->{$oDocument->getNickName()}<!--@end--><!--@else--><a href="#popup_menu_area" class="member_{$oDocument->member_srl}" onclick="return false">{$oDocument->getNickName()}</a><!--@end-->&nbsp;&nbsp;<i class="fa fa-calendar fa-fw"></i>&nbsp; {$oDocument->getRegdate('Y/m/d H:i:s')}
 		<!--@if($oDocument->hasUploadedFiles())-->
 		&nbsp; <a href="#documentfile" data-toggle="collapse"><i class="fa fa-download fa-fw"></i>  {$lang->uploaded_file} {$oDocument->get('uploaded_count')}개</a><!--@end-->
 	</div>
