@@ -28,8 +28,7 @@
 						<!--@else-->
 							<a href="#popup_menu_area" class="member_{$comment->member_srl}" onclick="return false">{$comment->getNickName()}</a>
 						<!--@end-->
-						&nbsp; <i class="fa fa-calendar fa-fw"></i> {$comment->getRegdate('M d, Y')} / 
-						{$comment->getRegdate('H:i:s')}
+						&nbsp; <i class="fa fa-calendar fa-fw"></i> {$comment->getRegdate('Y/m/d H:i:s')}
 						<!--@if($grant->manager || $module_info->display_ip_address!='N')-->
 						| {$comment->getIpaddress()}
 						<!--@end-->
